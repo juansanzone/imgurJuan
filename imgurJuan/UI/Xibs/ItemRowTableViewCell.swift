@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class ItemRowTableViewCell: UITableViewCell {
     static let reuseIdentifier: String = "itemRowCell"
@@ -14,6 +15,8 @@ final class ItemRowTableViewCell: UITableViewCell {
 
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemLabel: UILabel!
+
+    private let placeHolderImage = UIImage(named: "placeholder")
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +33,6 @@ final class ItemRowTableViewCell: UITableViewCell {
 extension ItemRowTableViewCell {
     func setupCell(modelProtocol: ItemViewModelProtocol) {
         itemLabel.text = modelProtocol.title()
-        if let imageUrl = modelProtocol.imageUrl() {
-            itemImage.setRemoteImage(imageUrl: imageUrl, success: nil)
-        }
+        itemImage.sd_setImage(with: modelProtocol.imageUrl(), placeholderImage: placeHolderImage, options: .scaleDownLargeImages)
     }
 }

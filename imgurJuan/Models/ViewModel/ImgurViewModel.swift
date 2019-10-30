@@ -15,11 +15,11 @@ final class ImgurViewModel {
 
 // MARK: Public methods.
 extension ImgurViewModel {
-    func fetchItems(success: ((Bool)->Void)? = nil) {
-        imgurService.getItems { [weak self] response in
+    func fetchItems(success: ((Bool)->Void)? = nil, queryToSearch: String) {
+        imgurService.fetchItems(success: { [weak self] response in
             self?.items = response
             success?(response.count > 0)
-        }
+        }, queryToSearch: queryToSearch)
     }
 
     func getItems() -> [ItemViewModelProtocol] {
@@ -27,6 +27,7 @@ extension ImgurViewModel {
     }
 
     func getItemsCount() -> Int {
+        print(items.count)
         return items.count
     }
 }

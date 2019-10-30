@@ -17,7 +17,7 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        fetchItems()
+        fetchItems("cats") // Define the query to search images.
     }
 }
 
@@ -33,9 +33,9 @@ private extension ViewController {
         tableView.reloadData()
     }
 
-    func fetchItems() {
-        viewModel.fetchItems { [weak self] _ in
+    func fetchItems(_ tagToSearch: String) {
+        viewModel.fetchItems(success: { [weak self] _ in
             self?.tableView.reloadData()
-        }
+        }, queryToSearch: tagToSearch)
     }
 }
