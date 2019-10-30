@@ -19,10 +19,16 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Z5r-7d-tWQ">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Z5r-7d-tWQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="03u-dS-Bby"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ls2-FE-hym" secondAttribute="trailing" id="S2o-nC-3nh"/>
+                            <constraint firstItem="Z5r-7d-tWQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Vi6-h8-OgX"/>
                             <constraint firstAttribute="bottom" secondItem="ls2-FE-hym" secondAttribute="bottom" id="fiB-Ox-OYk"/>
                             <constraint firstItem="ls2-FE-hym" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pI9-7K-AOu"/>
                             <constraint firstItem="ls2-FE-hym" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pS0-l1-lgV"/>
@@ -30,6 +36,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="loadingIndicator" destination="Z5r-7d-tWQ" id="PF6-Mc-Cdq"/>
                         <outlet property="tableView" destination="ls2-FE-hym" id="yKa-3U-ssV"/>
                     </connections>
                 </viewController>

@@ -27,7 +27,6 @@ extension ImgurViewModel {
     }
 
     func getItemsCount() -> Int {
-        print(items.count)
         return items.count
     }
 }

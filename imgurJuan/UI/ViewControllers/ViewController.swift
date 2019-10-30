@@ -10,6 +10,7 @@ import UIKit
 
 final class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
     internal lazy var rowHeight: CGFloat = 100
     internal let viewModel: ImgurViewModel = ImgurViewModel()
@@ -34,8 +35,10 @@ private extension ViewController {
     }
 
     func fetchItems(_ tagToSearch: String) {
+        loadingIndicator.startAnimating()
         viewModel.fetchItems(success: { [weak self] _ in
             self?.tableView.reloadData()
+            self?.loadingIndicator.stopAnimating()
         }, queryToSearch: tagToSearch)
     }
 }
