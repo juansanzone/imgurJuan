@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import INSPhotoGallery
 
 // MARK: TableView protocols.
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -25,7 +26,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row > viewModel.getItemsCount() { return }
-        // TODO:
+        if let tappedCell = tableView.cellForRow(at: indexPath) as? ItemRowTableViewCell {
+            let photo = INSPhoto(image: tappedCell.itemImage.image, thumbnailImage: nil)
+            let photos: [INSPhotoViewable] = [photo]
+            let galleryPreview = INSPhotosViewController(photos: photos, initialPhoto: photo, referenceView: tappedCell)
+            present(galleryPreview, animated: true, completion: nil)
+        }
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

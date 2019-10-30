@@ -5,6 +5,7 @@ platform :ios, '12.0'
 target 'imgurJuan' do
 	use_frameworks!
 	pod 'SDWebImage'
+        pod 'INSPhotoGallery'
 end
 
 post_install do |installer|

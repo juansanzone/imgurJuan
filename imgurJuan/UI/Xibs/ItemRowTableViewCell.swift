@@ -32,6 +32,7 @@ final class ItemRowTableViewCell: UITableViewCell {
 // MARK: Setup cell.
 extension ItemRowTableViewCell {
     func setupCell(modelProtocol: ItemViewModelProtocol) {
+        itemImage.transform = .identity
         itemLabel.text = modelProtocol.title()
         itemImage.sd_setImage(with: modelProtocol.imageUrl(), placeholderImage: placeHolderImage, options: .scaleDownLargeImages)
     }
